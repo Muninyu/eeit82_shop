@@ -1,0 +1,249 @@
+a{
+    text-decoration: none !important;
+}
+
+/* navbar */
+.nav-bg{
+    background-image: linear-gradient(to right top, #263d62, #2a507b, #2a6595, #267baf, #1791c8);
+}
+
+.nav-title {
+    text-decoration: none;
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: capitalize;
+    line-height: 60px;
+    margin-left: 200px;
+}
+
+.navbar-nav li {
+    line-height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.navbar-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+}
+
+.nav-log{
+    background-color: #263d62;
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 200px;
+}
+
+.nav-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 76px;
+    border-radius: 0px 0px 25px 25px;
+    background-image: linear-gradient(to right top, #263d62, #2a507b, #2a6595, #267baf, #1791c8);
+    text-align: center;
+}
+
+/* footer */
+.footer-bg{
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+    border-radius: 50px 50px 0px 0px;
+}
+
+.footer-font-title{
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.footer-context{
+    padding-left: 0px;
+}
+
+.footer-context>li{
+    list-style: none;
+}
+
+.footer-context>li>a{
+    text-decoration: none;
+    color: lightgray;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.footer-icon{
+    color: white;
+    font-size: 40px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.footer-font-company{
+    color: white;
+    font-size: 14px;
+}
+
+.footer-logo{
+    height: 200px;
+}
+
+/* order bar */
+.cartbar-set{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.cartbar-set2{
+    border: solid 3px #263d62;
+}
+
+.start-333 {
+    left: 33.3% !important;
+}
+
+.start-666 {
+    left: 66.6% !important;
+}
+
+.cartbar-ball{
+    display: inline-block;
+    background-color: #1791c8;
+    color: black;
+    border-radius: 50%;
+    font-size: 30px;
+    width: 45px;
+    text-align: center;
+}
+
+.cartbar-ball.active{
+    background-color: #263d62;
+    color: white;
+}
+
+/* cart title */
+.cart-title p{
+    font-size: 25px;
+    font-weight: 700;
+    color: #7a7a7a;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+/* cart context */
+.cart-text-center{
+    text-align: center;
+}
+
+.cart-height{
+    line-height: 100px;
+}
+
+
+.cart-contain{
+    border: solid lightgray;
+    border-width: 0.1px;
+    border-radius: 5px;
+}
+
+.cart-contain p{
+    font-size: 25px;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 0px;
+}
+
+.cart-img{
+    width: 100px;
+    height: 100px;
+}
+
+/* cart information */
+.cartinf-font p{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 0px;
+    padding: 10px 0px;
+}
+
+.cartinf-font p{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 0px;
+    padding: 10px 0px;
+}
+
+/* cart send */
+.cartsend-contain{
+    border: solid lightgray;
+    border-width: 0.1px;
+    border-radius: 5px;
+}
+
+.cartsend-title{
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
+    background-color: #7a7a7a;
+    text-align: center;
+    margin: 0px;
+}
+
+.cartsend-font{
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.cartsend-font2{
+    color: #7a7a7a;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.cartsend-select{
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.cartinf-btn{
+    color: black;
+    background-color: #1791c8;
+    width: 100%;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 700;
+    border: 0px;
+    border-radius: 10px;
+}
+
+.cartinf-btn:hover{
+    color: white;
+    background-color: #263d62;
+}
+
+.store-btn{
+    color: black;
+    background-color: #1791c8;
+    width: 100px;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 700;
+    border: 0px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left:10px;
+}

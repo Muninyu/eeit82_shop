@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+	rel="stylesheet">
+
+<title>BeautyBeast</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/about/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- Additional CSS Files -->
+<link rel="stylesheet" href="/about/css/fontawesome.css">
+<link rel="stylesheet" href="/about/css/bb-template.css">
+<link rel="stylesheet" href="/about/css/owl.css">
+<link rel="stylesheet" href="/about/css/animate.css">
+<link rel="stylesheet" href="/about/css/style-starter.css">
+<link rel="stylesheet"
+	href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+<!-- Google Font -->
+<!-- English -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+	rel="stylesheet">
+<!-- Chinese -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+	rel="stylesheet">
+</head>
+
+<body>
+
+	<!-- ***** Preloader Start ***** -->
+	<div id="js-preloader" class="js-preloader">
+		<div class="preloader-inner">
+			<span class="dot"></span>
+			<div class="dots">
+				<span></span> <span></span> <span></span>
+			</div>
+		</div>
+	</div>
+	<!-- ***** Preloader End ***** -->
+
+	<!-- ***** Header Area Start ***** -->
+	<header
+		class="header-area header-sticky roboto-regular noto-sans-tc-regular">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="main-nav">
+						<!-- ***** Logo Start ***** -->
+						<a th:href="@{/index}" class="logo"> <!-- <img src="assets/newimages/logo_B&B.png" alt="" style="width: 60px;"> -->
+							<h2 style="color: white;">B&B</h2>
+						</a>
+						<!-- ***** Logo End ***** -->
+						<!-- ***** Menu Start ***** -->
+						<ul class="nav">
+							<li><a th:href="@{/about}">關於我們</a></li>
+							<li><a href="product-details.html">健康精靈</a></li>
+							<li><a href="/page/page3">健身行動</a></li>
+							<li><a href="/shop">健身好物</a></li>
+							<li><a th:href="@{/contact}">聯絡我們</a></li>
+							<li><a href="#"><i class="fa-solid fa-cart-shopping"></i></i></a></li>
+							<li><a href="/test2">Sign In</a></li>
+
+						</ul>
+						<a class='menu-trigger'> <span>Menu</span>
+						</a>
+						<!-- ***** Menu End ***** -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- ***** Header Area End ***** -->
+
+	<div class="main-banner roboto-regular noto-sans-tc-regular">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 align-self-center">
+					<div class="caption header-text">
+						<h6>Welcome to</h6>
+						<h2 style="font-size: 98px;">
+							Beauty<br>Beast
+						</h2>
+						<p>
+							從健身訓練到飲食控管 <br>今天也Beauty一下吧 !
+						</p>
+						<div class="search-input">
+							<form id="search" action="#">
+								<input type="text" placeholder=" 輸入Email或手機號碼" id='searchText'
+									name="searchKeyword" onkeypress="handle" />
+								<button role="button">Log In</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 ">
+					<div class="right-image" style="padding: 70px;">
+						<img src="/about/images/banner-cp1.png" alt=""
+							style="width: 500px;">
+						<!-- <span class="price">$22</span>
+            <span class="offer">-40%</span> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="features noto-sans-tc-regular">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<a href="#">
+						<div class="item">
+							<div class="image">
+								<img src="/about/icon/feature01.png" alt=""
+									style="max-width: 44px;">
+							</div>
+							<h4>健康精靈</h4>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<a href="/page/page3">
+						<div class="item">
+							<div class="image">
+								<img src="/about/icon/feature02.png" alt=""
+									style="max-width: 44px;">
+							</div>
+							<h4>健身行動</h4>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<a href="/shop">
+						<div class="item">
+							<div class="image">
+								<img src="/about/icon/feature03.png" alt=""
+									style="max-width: 44px;">
+							</div>
+							<h4>健身好物</h4>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<a href="/ques1">
+						<div class="item">
+							<div class="image">
+								<img src="/about/icon/feature04.png" alt=""
+									style="max-width: 44px;">
+							</div>
+							<h4>加入會員</h4>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--mid-slider -->
+	<div class="section trending">
+		<div class="row">
+			<div class="col-12">
+				<div class="w3l-mid-slider">
+					<li>
+						<div class="slider-info mid-view bg bg2">
+							<div class="container">
+								<div class="mid-info">
+									<div class="nav">
+										<img src="/about/icon/feature02.png" alt=""
+											style="max-width: 44px;">
+
+										<h1 style="color: white; text-indent: 10px;";>設定健身目標</h1>
+									</div>
+									<p style="color: #F6A185; line-height: 55px;";>增肌．減脂．瘦身</p>
+									<a class="watch" href="genre.html"><span class="fa fa-play"
+										aria-hidden="true"></span> Watch And Setup Now</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section trending">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="section-heading">
+						<h6>限時特賣</h6>
+						<h2>健身好物</h2>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="main-button">
+						<a href="/shop">View All</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="item">
+						<div class="thumb">
+							<a href="#"><img src="/about/images/product03.jpg" alt=""></a>
+							<span class="price"><em>$70</em>$49</span>
+						</div>
+						<div class="down-content">
+							<span class="category">乳清蛋白</span>
+							<h4>
+								MyProtien 乳清蛋白粉<br>(原味)
+							</h4>
+							<a href="#"><i class="fa fa-shopping-bag"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="item">
+						<div class="thumb">
+							<a href="#"><img src="/about/images/product04.jpg" alt=""></a>
+							<span class="price">$45</span>
+						</div>
+						<div class="down-content">
+							<span class="category">乳清蛋白</span>
+							<h4>
+								Impact 乳清蛋白粉<br>(經典乳酸口味)
+							</h4>
+							<a href="#"><i class="fa fa-shopping-bag"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="item">
+						<div class="thumb">
+							<a href="product-details.html"><img
+								src="/about/images/product05.jpg" alt=""></a> <span
+								class="price"><em>$99</em>$69</span>
+						</div>
+						<div class="down-content">
+							<span class="category">乳清蛋白</span>
+							<h4>
+								Impact 乳清蛋白粉<br>(草莓乳酸口味)
+							</h4>
+							<a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="item">
+						<div class="thumb">
+							<a href="product-details.html"><img
+								src="/about/images/product06.jpg" alt=""></a> <span
+								class="price">$45</span>
+						</div>
+						<div class="down-content">
+							<span class="category">乳清蛋白</span>
+							<h4>
+								Impact 乳清蛋白粉<br>(草莓牛奶口味)
+							</h4>
+							<a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section most-played">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="section-heading">
+						<h6>熱門商品</h6>
+						<h2>健身好物</h2>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="main-button">
+						<a href="shop.html">View All</a>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="item">
+						<div class="thumb">
+							<a href="product-details.html"><img
+								src="/about/images/top02.jpg" alt=""></a>
+						</div>
+						<div class="down-content">
+							<span class="category">乳清蛋白</span>
+							<h4>
+								Impact 乳清蛋白粉<br>(牛奶口味)
+							</h4>
+							<a href="product-details.html">直接購買</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="item">
+						<div class="thumb">
+							<a href="product-details.html"><img
+								src="/about/images/top03.jpg" alt=""></a>
+						</div>
+						<div class="down-content">
+							<span class="category">乳清蛋白</span>
+							<h4>
+								Impact 乳清蛋白粉<br>(珍奶口味)
+							</h4>
+							<a href="product-details.html">直接購買</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="item">
+						<div class="thumb">
+							<a href="product-details.html"><img
+								src="/about/images/top03.jpg" alt=""></a>
+						</div>
+						<div class="down-content">
+							<span class="category">乳清蛋白</span>
+							<h4>
+								MyProtien 乳清蛋白<br>(原味)
+							</h4>
+							<a href="product-details.html">直接購買</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="item">
+						<div class="thumb">
+							<a href="product-details.html"><img
+								src="/about/images/top04.jpg" alt=""></a>
+						</div>
+						<div class="down-content">
+							<span class="category">即食雞胸肉</span>
+							<h4>
+								野人舒食 雞胸肉<br>(台式油蔥)
+							</h4>
+							<a href="product-details.html">直接購買</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="item">
+						<div class="thumb">
+							<a href="product-details.html"><img
+								src="/about/images/top05.jpg" alt=""></a>
+						</div>
+						<div class="down-content">
+							<span class="category">即食雞胸肉</span>
+							<h4>
+								野人舒食 雞胸肉<br>(美式炭烤)
+							</h4>
+							<a href="product-details.html">直接購買</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="item">
+						<div class="thumb">
+							<a href="product-details.html"><img
+								src="/about/images/top06.jpg" alt=""></a>
+						</div>
+						<div class="down-content">
+							<span class="category">即食雞胸肉</span>
+							<h4>
+								野人舒食 雞胸肉<br>(大蒜辣椒)
+							</h4>
+							<a href="product-details.html">直接購買</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- contact1 -->
+	<section class="w3l-contact-1">
+		<div class="contacts-9 py-5">
+			<div class="container py-lg-4">
+				<div class="headerhny-title text-center">
+					<img style="width: 120px;" src="/about/logo/B&B_logo.png">
+					<!-- <h4 class="sub-title text-center">BeautyBeast</h4> -->
+					<h3 class="hny-title mb-0">聯絡我們</h3>
+					<!-- <p class="hny-title mb-lg-5 mb-4">有疑問嗎?請聯絡我們</p> -->
+				</div>
+				<div class="contact-view mt-lg-5 mt-4">
+					<div class="conhny-form-section">
+						<form action="https://sendmail.w3layouts.com/submitForm"
+							method="post" class="formhny-sec">
+							<div class="form-grids">
+								<div class="form-input">
+									<input type="text" name="w3lName" id="w3lName"
+										placeholder="姓名 *" required="" />
+								</div>
+								<div class="form-input">
+									<input type="text" name="w3lSubject" id="w3lSubject"
+										placeholder="表單主旨 " required />
+								</div>
+								<div class="form-input">
+									<input type="email" name="w3lSender" id="w3lSender"
+										placeholder="輸入 Email *" required />
+								</div>
+								<div class="form-input">
+									<input type="text" name="w3lPhone" id="w3lPhone"
+										placeholder="Enter your Phone Number *" required />
+								</div>
+							</div>
+							<div class="form-input mt-4">
+								<textarea name="w3lMessage" id="w3lMessage" placeholder="輸入訊息"
+									required=""></textarea>
+							</div>
+							<div class="submithny text-right mt-4">
+								<button class="btn read-button">提交表單</button>
+							</div>
+						</form>
+					</div>
+
+					<div class="d-grid contact-addres-inf mt-5 pt-lg-4">
+						<div class="contact-info-left d-grid">
+							<div class="contact-info">
+								<div class="icon">
+									<span class="fa fa-location-arrow" aria-hidden="true"></span>
+								</div>
+								<div class="contact-details">
+									<h4>Address:</h4>
+									<p>408台中市南屯區公益路二段51號18樓</p>
+								</div>
+							</div>
+							<div class="contact-info">
+								<div class="icon">
+									<span class="fa fa-phone" aria-hidden="true"></span>
+								</div>
+								<div class="contact-details">
+									<h4>Phone:</h4>
+									<p>
+										<a href="#">04 2326 5860</a>
+									</p>
+								</div>
+							</div>
+							<div class="contact-info">
+								<div class="icon">
+									<span class="fa fa-envelope-open-o" aria-hidden="true"></span>
+								</div>
+								<div class="contact-details">
+									<h4>Mail:</h4>
+									<p>
+										<a href="#" class="email">BeautyBeast@gmail.com</a>
+									</p>
+									<!-- <p><a href="#" class="email">proshowz@support.com</a></p> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<footer class=" container w3l-footer">
+		<!-- <section class="footer-inner-main"> -->
+		<div class="footer-hny-grids py-5">
+			<div class="container py-lg-4">
+				<div class="text-txt">
+					<div class="right-side">
+						<div class="row footer-links">
+							<div class="col-md-5 col-sm-6 sub-two-right mt-5">
+								<h6>BeautyBeast</h6>
+								<ul>
+									<li><a th:href="@{/about}">關於我們</a></li>
+									<li><a href="#">健康精靈</a></li>
+									<li><a href="/page/page3">健身行動</a></li>
+									<li><a href="/shop">健康好物</a></li>
+									<li><a th:href="@{/contact}">聯絡我們</a></li>
+								</ul>
+							</div>
+							<div class="col-md-6 col-sm-6 sub-two-right mt-5">
+								<h6>開始使用</h6>
+								<form action="/ques1" class="subscribe mb-3" method="get">
+									<input type="email" name="email" placeholder="輸入Email或手機號碼"
+										required="">
+									<button type="submit">
+										<span class="fa fa-envelope-o"></span>
+									</button>
+								</form>
+								<p>加入Beauty & Beast，開始健康每一天 !</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<!-- <div class="below-section"> -->
+		<div class="container">
+			<div class="copyright-footer">
+				<div class="columns text-lg-left">
+					<p style="padding: 20px;">Copyright © 2024 BeautyBeast Website.
+						All rights reserved. &nbsp;&nbsp</p>
+				</div>
+
+				<ul class="social text-lg-right">
+					<li><a href="#facebook"><span class="fa fa-facebook"
+							aria-hidden="true"></span></a></li>
+					<li><a href="#linkedin"><span class="fa fa-linkedin"
+							aria-hidden="true"></span></a></li>
+					<li><a href="#twitter"><span class="fa fa-twitter"
+							aria-hidden="true"></span></a></li>
+					<!-- <li><a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+							</li> -->
+
+				</ul>
+			</div>
+		</div>
+		</div>
+		<!-- copyright -->
+		<!-- move top -->
+		<button onclick="topFunction()" id="movetop" title="Go to top">
+			<span class="fa fa-arrow-up" aria-hidden="true"></span>
+		</button>
+		<script>
+			// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function() {
+				scrollFunction()
+			};
+
+			function scrollFunction() {
+				if (document.body.scrollTop > 20
+						|| document.documentElement.scrollTop > 20) {
+					document.getElementById("movetop").style.display = "block";
+				} else {
+					document.getElementById("movetop").style.display = "none";
+				}
+			}
+
+			// When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		</script>
+		<!-- /move top -->
+
+		<!-- </section> -->
+	</footer>
+	<!-- Scripts -->
+	<!-- Bootstrap core JavaScript -->
+	<script src="/about/jquery/jquery.min.js"></script>
+	<script src="/about/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/about/js/isotope.min.js"></script>
+	<script src="/about/js/owl-carousel.js"></script>
+	<script src="/about/js/counter.js"></script>
+	<script src="/about/js/custom.js"></script>
+
+</body>
+</html>

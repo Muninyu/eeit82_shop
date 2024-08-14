@@ -1,0 +1,668 @@
+/* 引入 Google 字體 Poppins，使用 400 和 600 權重，顯示方式為 swap，這樣可以在字體加載完畢之前顯示後備字體 */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+/* 重置偽元素的 box-sizing、margin 和 padding，確保所有元素的內外邊距和邊框在計算時包含在元素的總寬度和高度內 */
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 移除所有連結的下劃線，使連結文字顯示更為簡潔 */
+a {
+  text-decoration: none;
+}
+
+/* 移除所有列表項目的點，讓列表更簡潔 */
+li {
+  list-style: none;
+}
+
+/* 設置標題 h1 的字體樣式，字體粗細為 600，字體大小為 1.5rem */
+h1 {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+/* 設置全站的字體為 Poppins 字體 */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    to right top,
+    rgb(246, 222, 136) 20%,
+    rgb(242, 128, 128) 80%
+  );
+}
+
+/* 創建一個 flex 容器，背景為線性漸變從右上至左下，包含兩種顏色 */
+.wrapper {
+  display: flex;
+  background: linear-gradient(
+    to right top,
+    rgb(246, 222, 136) 20%,
+    rgb(242, 128, 128) 80%
+  );
+}
+
+/* 設置主內容區塊樣式，最小高度為 100vh，寬度為 100%，隱藏溢出內容，並設置過渡效果 */
+.main {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+}
+
+/* 設置側邊欄的樣式，位置固定在頂部，寬度和最小寬度為 70px，高度為 700px，背景透明，設置圓角和陰影，並使用列方向的 flex 布局 */
+#sidebar {
+  position: sticky;
+  top: 0px;
+  width: 70px;
+  height: 700px;
+  min-width: 70px;
+  z-index: 1000;
+  transition: all 0.25s ease-in-out;
+  background-color: transparent;
+  display: flex;
+  border-radius: 0px 20px 20px 0px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+}
+
+/* 展開側邊欄時，寬度和最小寬度增加到 260px */
+#sidebar.expand {
+  width: 260px;
+  min-width: 260px;
+}
+
+/* 切換按鈕樣式，背景透明，設置鼠標樣式為指針，邊框為 0，內邊距為 1rem 1.5rem */
+.toggle-btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  padding: 1rem 1.5rem;
+}
+
+/* 切換按鈕內圖標的樣式，字體大小為 1.5rem，顏色為白色 */
+.toggle-btn i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+/* 側邊欄 logo 的樣式，設置上下居中 */
+.sidebar-logo {
+  margin: auto 0;
+}
+
+/* 側邊欄 logo 連結的樣式，顏色為白色，字體大小為 1.15rem，字體粗細為 600 */
+.sidebar-logo a {
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* 當側邊欄未展開時，隱藏 logo 和連結中的 span */
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span {
+  display: none;
+}
+
+/* 側邊欄導航的樣式，設置上下內邊距為 2rem，自適應填充剩餘空間 */
+.sidebar-nav {
+  padding: 2rem 0;
+  flex: 1 1 auto;
+}
+
+/* 側邊欄連結的樣式，設置內邊距，顏色為白色，塊級顯示，字體大小為 0.9rem，強制換行，左邊框為透明 */
+a.sidebar-link {
+  padding: 0.625rem 1.625rem;
+  color: #fff;
+  display: block;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  border-left: 3px solid transparent;
+}
+
+/* 側邊欄連結中的圖標樣式，字體大小為 1.1rem，右邊距為 0.75rem */
+.sidebar-link i {
+  font-size: 1.1rem;
+  margin-right: 0.75rem;
+}
+
+/* 側邊欄連結的滑鼠懸停效果，背景顏色變為半透明白色，左邊框顏色變為 #f2991b */
+a.sidebar-link:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+  border-left: 3px solid #f2991b;
+}
+
+/* 側邊欄項目的相對定位 */
+.sidebar-item {
+  position: relative;
+}
+
+/* 側邊欄未展開時，下拉菜單樣式設置為絕對定位，背景顏色為 #f7af28，無內邊距，最小寬度為 15rem，默認不顯示 */
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  background-color: #f7af28;
+  padding: 0;
+  min-width: 15rem;
+  display: none;
+}
+
+/* 當滑鼠懸停時顯示下拉菜單，最大高度為 15em，寬度為 100%，透明度為 1 */
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown + .sidebar-dropdown {
+  display: block;
+  max-height: 15em;
+  width: 100%;
+  opacity: 1;
+}
+
+/* 展開側邊欄時，連結上的展開圖標，右側邊距為 1.5rem */
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+  border: solid;
+  border-width: 0 0.075rem 0.075rem 0;
+  content: "";
+  display: inline-block;
+  padding: 2px;
+  position: absolute;
+  right: 1.5rem;
+}
+
+/* icon圖標樣式，寬度為 20px */
+.icon-type {
+  width: 20px;
+}
+
+/* 右邊欄位樣式，位置固定在頂部，設置圓角，寬度為 440px，高度為 680px，內邊距為 20px，背景色為 #f9f9f9，邊框為 1px 寬度的 #ddd，添加陰影，頂部和左邊距分別為 20px 和 0px */
+.custom-box {
+  position: sticky;
+  top: 20px;
+  border-radius: 20px;
+  width: 460px; /* 設置寬度 */
+  height: 680px;
+  padding: 20px; /* 添加填充 */
+  background-color: #f9f9f9; /* 設置背景色 */
+  border: 1px solid #ddd; /* 添加邊框 */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* 添加陰影 */
+  margin-top: 20px;
+  margin-left: 0px;
+}
+
+/* 標題樣式，高度為 60px，無內邊距和下邊距，背景色為 #f1e0cd，文字顏色為白色，居中對齊，設置圓角 */
+.header1 {
+  height: 60px;
+  margin: 0px 0px 20px 0px;
+  padding: 0px;
+  background-color: #f1e0cd;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* 日曆 */
+/* 日曆容器樣式 */
+.calendar {
+  height: 450px; /* 設置日曆的高度 */
+  width: 100%; /* 設置日曆的寬度 */
+  background-color: #666; /* 設置日曆背景顏色 */
+  border-radius: 20px; /* 設置圓角半徑 */
+  padding: 20px; /* 設置內邊距 */
+  position: relative; /* 設置相對定位，以便內部元素可以使用絕對定位 */
+  overflow: hidden; /* 隱藏超出容器的內容 */
+}
+
+/* 日曆頭部樣式 */
+.calendar-header {
+  text-align: center; /* 設置文本居中 */
+  font-size: 14px; /* 設置字體大小 */
+  color: white; /* 設置字體顏色 */
+  padding: 10px; /* 設置內邊距 */
+}
+
+/* 月份選擇器樣式 */
+.month-picker {
+  border-radius: 10px; /* 設置圓角半徑 */
+  cursor: pointer; /* 設置鼠標指針為手型，表示可點擊 */
+}
+
+/* 年份選擇器樣式 */
+.year-picker {
+  display: flex; /* 使用彈性布局 */
+  align-items: center; /* 垂直方向居中對齊 */
+}
+
+/* 年份切換按鈕樣式 */
+.year-change {
+  width: 150px; /* 設置寬度 */
+  border-radius: 50%; /* 設置圓形按鈕 */
+  display: grid; /* 使用網格布局 */
+  place-items: center; /* 水平和垂直方向居中對齊 */
+  margin: 0 10px; /* 設置外邊距 */
+  cursor: pointer; /* 設置鼠標指針為手型，表示可點擊 */
+}
+
+/* 星期幾頭部樣式 */
+.calendar-week-day {
+  height: 50px; /* 設置高度 */
+  display: grid; /* 使用網格布局 */
+  grid-template-columns: repeat(7, 1fr); /* 設置為7列，寬度均分 */
+  font-weight: 600; /* 設置字體加粗 */
+}
+
+/* 每個星期幾的樣式 */
+.calendar-week-day div {
+  display: grid; /* 使用網格布局 */
+  place-items: center; /* 水平和垂直方向居中對齊 */
+  color: white; /* 設置字體顏色 */
+}
+
+/* 日曆日期格子容器樣式 */
+.calendar-days {
+  display: grid; /* 使用網格布局 */
+  grid-template-columns: repeat(7, 1fr); /* 設置為7列，寬度均分 */
+  gap: 2px; /* 設置格子之間的間隙 */
+  font-size: 14px; /* 設置字體大小 */
+  color: white; /* 設置字體顏色 */
+}
+
+/* 每個日期格子的樣式 */
+.calendar-days div {
+  width: 45px; /* 設置寬度 */
+  height: 45px; /* 設置高度 */
+  display: flex; /* 使用彈性布局 */
+  align-items: center; /* 垂直方向居中對齊 */
+  justify-content: center; /* 水平方向居中對齊 */
+  margin-left: 4px; /* 設置左外邊距 */
+  position: relative; /* 設置相對定位 */
+  cursor: pointer; /* 設置鼠標指針為手型，表示可點擊 */
+  animation: to-top 1s forwards; /* 應用動畫效果 */
+  border-radius: 50%; /* 設置圓角半徑 */
+}
+
+/* 日期格子懸停時的樣式 */
+.calendar-days div:hover span {
+  transition: 0.5s ease-in-out; /* 設置過渡效果 */
+  width: 50px; /* 設置寬度 */
+  height: 50px; /* 設置高度 */
+  border-radius: 50%; /* 設置圓角半徑 */
+  border: 1px solid rgb(255, 234, 0); /* 設置邊框顏色和寬度 */
+}
+
+/* 日期格子內部元素的樣式 */
+.calendar-days div span {
+  position: absolute; /* 設置絕對定位 */
+}
+
+/* 當前日期的樣式 */
+.calendar-days div.curr-date,
+.calendar-days div.curr-date:hover {
+  background-color: rgb(56, 239, 151); /* 設置背景顏色 */
+  color: white; /* 設置字體顏色 */
+  border-radius: 50%; /* 設置圓角半徑 */
+}
+
+/* 月份列表容器樣式 */
+.month-list {
+  position: absolute; /* 設置絕對定位 */
+  width: 100%; /* 設置寬度為父容器的100% */
+  height: 100%; /* 設置高度為父容器的100% */
+  top: 0px; /* 設置上邊距 */
+  left: 0px; /* 設置左邊距 */
+  font-size: 14px; /* 設置字體大小 */
+  text-align: center; /* 設置文本居中 */
+  background-color: rgb(156, 119, 119); /* 設置背景顏色 */
+  padding: 20px; /* 設置內邊距 */
+  transform: scale(1.5); /* 設置縮放比例 */
+  visibility: hidden; /* 設置不可見 */
+  cursor: pointer; /* 設置鼠標指針為手型，表示可點擊 */
+}
+
+/* 月份列表顯示時的樣式 */
+.month-list.show {
+  transform: scale(1); /* 還原縮放比例 */
+  visibility: visible; /* 設置可見 */
+  pointer-events: visible; /* 允許鼠標事件 */
+  transition: all 0.2s ease-in-out; /* 設置過渡效果 */
+}
+
+/* 簽到按鈕 */
+/* 簽到按鈕容器樣式 */
+.btn1-container {
+  padding: 20px; /* 設置內邊距 */
+  display: flex; /* 使用彈性布局 */
+  justify-content: center; /* 水平方向居中對齊 */
+  align-items: center; /* 垂直方向居中對齊 */
+}
+
+/* 簽到按鈕樣式 */
+.btn1 {
+  position: relative; /* 設置相對定位 */
+  min-width: 200px; /* 設置最小寬度 */
+  background: linear-gradient(
+    to right top,
+    rgb(246, 222, 136) 20%,
+    rgb(242, 128, 128) 80%
+  ); /* 設置線性漸變背景 */
+  border: 0px; /* 無邊框 */
+  border-radius: 20px; /* 設置圓角半徑 */
+  overflow: hidden; /* 隱藏超出容器的內容 */
+}
+
+/* 按鈕內部樣式 */
+.btn1 div,
+.btn1:before {
+  font-size: 1em; /* 設置字體大小 */
+  font-weight: bold; /* 設置字體加粗 */
+  text-transform: uppercase; /* 設置字母大寫 */
+  transition: all 0.3s ease-in-out; /* 設置過渡效果 */
+  padding: 10px 20px; /* 設置內邊距 */
+}
+
+/* 按鈕懸停前的樣式 */
+.btn1:before {
+  color: white; /* 設置字體顏色 */
+  font-size: 1.2em; /* 調整圖標大小 */
+  margin-right: 5px; /* 設置右外邊距 */
+  content: attr(data-hover); /* 設置內容為自定義屬性 data-hover */
+  position: absolute; /* 設置絕對定位 */
+  top: 0; /* 設置上邊距 */
+  left: 0; /* 設置左邊距 */
+  width: 100%; /* 設置寬度為100% */
+  opacity: 0; /* 設置透明度 */
+  transform: translate(-100%, 0); /* 設置初始位置 */
+}
+
+/* 按鈕懸停時的樣式 */
+.btn1:hover div {
+  opacity: 0; /* 設置透明度 */
+  transform: translate(100%, 0); /* 設置移動位置 */
+}
+
+/* 按鈕懸停時圖標的樣式 */
+.btn1:hover:before {
+  opacity: 1; /* 設置透明度 */
+  transform: translate(0, 0); /* 設置移動位置 */
+}
+
+/* 主要內容區域 */
+/* 主要內容樣式 */
+.main-content {
+  padding: 0px; /* 無內邊距 */
+  max-width: 800px; /* 限制最大寬度 */
+  margin: 0 auto; /* 水平居中 */
+}
+
+/* 標題樣式 */
+.header h1 {
+  margin: 0; /* 無外邊距 */
+  padding: 20px 0; /* 設置上下內邊距 */
+  background-color: #f1e0cd; /* 設置背景顏色 */
+  color: #fff; /* 設置字體顏色 */
+  text-align: center; /* 設置文本居中 */
+  border-radius: 20px 20px 0 0; /* 設置圓角半徑 */
+}
+
+/* 計劃部分樣式 */
+.plan-section {
+  background-color: #fff; /* 設置背景顏色 */
+  padding: 10px; /* 設置內邊距 */
+  margin-bottom: 20px; /* 設置下外邊距 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 設置陰影 */
+  border-radius: 0 0 20px 20px; /* 設置圓角半徑 */
+}
+
+/* 計劃部分標題樣式 */
+.plan-section h2 {
+  text-align: center; /* 設置文本居中 */
+}
+
+/* 計劃列表樣式 */
+.plans {
+  display: flex; /* 使用彈性布局 */
+  justify-content: space-between; /* 水平方向均勻分佈 */
+}
+
+/* 單個計劃樣式 */
+.plan {
+  width: calc(50% - 10px); /* 設置寬度，一行兩個計劃，中間有小間隙 */
+  margin: 5px; /* 設置下外邊距 */
+  padding: 20px; /* 設置內邊距 */
+  height: 250px; /* 設置高度 */
+  background-color: #e6e4e0; /* 設置背景顏色 */
+  border-radius: 20px;
+  /* border: 1px solid #ddd; 設置邊框 */
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 設置陰影 */
+  text-align: center; /* 設置文本居中 */
+}
+
+/* 計劃標題樣式 */
+.plan h3 {
+  margin: 0; /* 無外邊距 */
+  font-size: 18px; /* 設置字體大小 */
+}
+
+/* 計劃描述樣式 */
+.plan p {
+  font-size: 14px; /* 設置字體大小 */
+  color: #666; /* 設置字體顏色 */
+}
+
+/* 運動導覽 ---------------------------*/
+/* 側邊導航欄樣式 */
+.sidenav {
+  height: 100%; /* 設置高度為 100% */
+  width: 0; /* 初始寬度設置為 0 */
+  position: fixed; /* 設置固定定位 */
+  z-index: 1; /* 設置 z-index 為 1 */
+  top: 0; /* 設置距離頂部為 0 */
+  left: 0; /* 設置距離左側為 0 */
+  border-radius: 0px 20px 20px 0px; /* 設置圓角 */
+  background-color: #f88944; /* 設置背景顏色 */
+  overflow-x: hidden; /* 隱藏水平滾動條 */
+  padding-top: 60px; /* 設置內邊距頂部為 60px */
+  transition: 0.5s; /* 設置過渡時間為 0.5 秒 */
+}
+
+/* 側邊導航欄連結樣式 */
+.sidenav a {
+  padding: 8px 8px 8px 32px; /* 設置內邊距 */
+  text-decoration: none; /* 移除文本裝飾 */
+  font-size: 25px; /* 設置字體大小 */
+  color: #ffffff; /* 設置字體顏色 */
+  display: block; /* 設置為區塊元素 */
+  transition: 0.3s; /* 設置過渡時間為 0.3 秒 */
+}
+
+/* 側邊導航欄連結懸停效果 */
+.sidenav a:hover {
+  color: #f1f1f1; /* 設置字體顏色 */
+}
+
+/* 側邊導航欄關閉按鈕樣式 */
+.sidenav .closebtn {
+  position: absolute; /* 設置絕對定位 */
+  top: 0; /* 設置距離頂部為 0 */
+  right: 25px; /* 設置距離右側為 25px */
+  font-size: 36px; /* 設置字體大小 */
+  margin-left: 50px; /* 設置左外邊距 */
+}
+
+/* 主要內容樣式 */
+#main {
+  transition: margin-left 0.5s; /* 設置過渡時間為 0.5 秒 */
+  padding: 20px; /* 設置內邊距 */
+}
+
+/* 網頁背景顏色 */
+#bodyuse {
+  background-color: black; /* 設置背景顏色為黑色 */
+}
+
+/* 運動按鈕 */
+/* 運動按鈕樣式 */
+.btn2 {
+  display: inline-block; /* 設置為行內區塊元素 */
+  position: relative; /* 設置相對定位 */
+  z-index: 1; /* 設置 z-index 為 1 */
+  min-width: 200px; /* 設置最小寬度 */
+  background: #ffffff; /* 設置背景顏色 */
+  border: 2px solid #f88944; /* 設置邊框 */
+  border-radius: 4px; /* 設置圓角半徑 */
+  color: #f88944; /* 設置字體顏色 */
+  font-size: 1rem; /* 設置字體大小 */
+  text-transform: uppercase; /* 設置字母大寫 */
+  font-weight: bold; /* 設置字體加粗 */
+  text-align: center; /* 設置文本居中 */
+  text-decoration: none; /* 移除文本裝飾 */
+  overflow: hidden; /* 隱藏超出容器的內容 */
+  transition: 0.5s; /* 設置過渡時間為 0.5 秒 */
+  padding: 10px 20px; /* 設置內邊距 */
+}
+
+/* 按鈕內部樣式 */
+.btn2 span {
+  position: absolute; /* 設置絕對定位 */
+  width: 25%; /* 設置寬度為 25% */
+  height: 100%; /* 設置高度為 100% */
+  background-color: #f88944; /* 設置背景顏色 */
+  transform: translateY(150%); /* 設置初始位置 */
+  border-radius: 50%; /* 設置圓角半徑 */
+  left: calc((var(--n) - 1) * 25%); /* 根據自定義屬性計算左邊距 */
+  transition: 0.5s; /* 設置過渡時間為 0.5 秒 */
+  transition-delay: calc(
+    (var(--n) - 1) * 0.1s
+  ); /* 根據自定義屬性設置過渡延遲 */
+  z-index: -1; /* 設置 z-index 為 -1 */
+}
+
+/* 按鈕懸停和獲得焦點樣式 */
+.btn2:hover,
+.btn2:focus {
+  color: black; /* 設置字體顏色為黑色 */
+}
+
+/* 按鈕懸停時的內部效果 */
+.btn2:hover span {
+  transform: translateY(0) scale(2); /* 設置變換效果 */
+}
+
+/* 按鈕內部不同子元素樣式 */
+.btn2 span:nth-child(1) {
+  --n: 1; /* 設置自定義屬性 n 的值為 1 */
+}
+
+.btn2 span:nth-child(2) {
+  --n: 2; /* 設置自定義屬性 n 的值為 2 */
+}
+
+.btn2 span:nth-child(3) {
+  --n: 3; /* 設置自定義屬性 n 的值為 3 */
+}
+
+.btn2 span:nth-child(4) {
+  --n: 4; /* 設置自定義屬性 n 的值為 4 */
+}
+
+/* 運動下框 */
+
+.contrbox {
+  width: 450px;
+  height: 150px;
+  margin: 20px;
+  border-radius: 20px;
+  background-color: #f88944;
+}
+
+#timer {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+.btn3 {
+  width: 80px;
+  height: 60px;
+  border: 0px;
+  border-radius: 15px;
+  background-color: transparent; /* 按鈕背景顏色 */
+  color: #ffffff; /* 文字顏色 */
+  font-size: 20px; /* 文字大小 */
+}
+
+.btn3:hover {
+  background-color: #ff9a1e; /* 滑鼠懸停時的背景顏色 */
+  color: #ffffff; /* 滑鼠懸停時的文字顏色 */
+}
+
+.imgplay{
+  height: 50px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+
+
+/* 運動導覽列 */
+/* 小螢幕下的側邊導航欄樣式 */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px; /* 設置內邊距頂部為 15px */
+  }
+
+  .sidenav a {
+    font-size: 18px; /* 設置字體大小 */
+  }
+}
+
+/* 小螢幕下的按鈕和側邊導航欄樣式 */
+@media screen and (max-width: 768px) {
+  .btn2 {
+    min-width: 150px; /* 設置最小寬度 */
+    font-size: 0.875rem; /* 設置字體大小 */
+  }
+
+  .sidenav {
+    padding-top: 15px; /* 設置內邊距頂部為 15px */
+    width: 0; /* 設置寬度為 100% */
+  }
+
+  .sidenav a {
+    font-size: 18px; /* 設置字體大小 */
+  }
+
+  .closebtn {
+    font-size: 30px; /* 設置字體大小 */
+    right: 10px; /* 設置右邊距 */
+    top: 5px; /* 設置上邊距 */
+  }
+}
+
+/* 一般的響應式設計 */
+@media (max-width: 768px) {
+  .plans {
+    flex-direction: column; /* 計劃換行 */
+    justify-content: center; /* 水平居中對齊 */
+  }
+  .plan {
+    width: calc(100% - 5px); /* 設置寬度，計算方式避免兩個計劃之間有小間隙 */
+  }
+  .custom-box {
+    display: none; /* 隱藏自定義盒子 */
+  }
+
+  /* 運動頁面的樣式 */
+  #col1 {
+    display: none; /* 隱藏 col1 */
+  }
+  #col2 {
+    display: none; /* 隱藏 col2 */
+  }
+  .col-7 {
+    width: 100%; /* 設置寬度為 100% */
+  }
+  #bodyuse {
+    background-color: white; /* 設置背景顏色為白色 */
+  }
+}

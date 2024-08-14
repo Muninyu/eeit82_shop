@@ -1,0 +1,433 @@
+/* 全域樣式 */
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    /* 防止水平滾動條出現 */
+}
+
+/* 父容器樣式 */
+.container {
+    display: flex;
+    /* 使用 Flexbox 布局 */
+    height: 100%;
+    overflow: hidden;
+    /* 防止側邊欄溢出 */
+}
+
+.sidebar {
+    flex: 0 0 200px;
+    background-image: linear-gradient(to right top, #263d62, #2a507b, #2a6595, #267baf, #1791c8);
+    padding: 20px;
+    transform: translateX(-100%);
+    transition: transform 2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* 水平居中對齊 */
+    align-items: center;
+    /* 垂直居中對齊 */
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    /* 添加下邊距 */
+}
+
+.user-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.user-name {
+    margin: 0;
+}
+
+.sidebar a {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+/* 側邊欄顯示樣式 */
+.sidebar.active {
+    transform: translateX(0);
+    /* 顯示側邊欄 */
+}
+
+/* 主內容樣式 */
+.main-content {
+    flex: 1;
+    /* 主內容佔據剩餘空間 */
+    padding: 20px;
+    /* 置中對齊 */
+    overflow: auto;
+    /* 添加滾動條 */
+    background-color: rgb(227, 227, 227);
+}
+
+.secondary-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* 可以根據需要調整高度 */
+}
+
+.secondary-content {
+    background-color: #d0d0d0;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    justify-content: center;
+}
+
+/* 共同的樣式 */
+.sidebar a:hover {
+    background-color: #d1d1d1;
+    color: black;
+}
+
+.main-content h1 {
+    opacity: 0;
+    /* 默認隱藏 */
+    transition: opacity 0.5s ease;
+    /* 添加漸變效果 */
+}
+
+.main-content h1.show {
+    opacity: 1;
+    /* 顯示標題 */
+}
+
+/* 圖表容器居中 */
+#salesChart,
+#visitChart {
+    margin: 0 auto;
+    width: 800px;
+    /* 調整圖表容器寬度 */
+}
+
+.separator {
+    border: none;
+    border-top: 1px solid #000000;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.order-form {
+    width: calc(100% - 40px);
+    /* 主內容寬度減去兩邊 padding 的寬度 */
+    padding: 20px;
+}
+
+/* 表格樣式 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    /* 圓角 */
+    overflow: hidden;
+    /* 避免邊框溢出 */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    /* 添加陰影效果 */
+}
+
+/* 表頭樣式 */
+thead {
+    background-color: #4CAF50;
+    /* 表頭背景顏色 */
+    color: white;
+    /* 文字顏色 */
+}
+
+/* 表頭單元格樣式 */
+th {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    /* 表頭下邊框線 */
+}
+
+/* 表體樣式 */
+tbody {
+    background-color: #f2f2f2;
+    /* 表體背景顏色 */
+}
+
+/* 表體單元格樣式 */
+td {
+    padding: 12px;
+    text-align: center;
+    /* 將文字置中 */
+    border-bottom: 1px solid #ddd;
+    /* 表體下邊框線 */
+}
+
+/* 滑鼠懸停樣式 */
+tr:hover {
+    background-color: #ddd;
+    /* 滑鼠懸停時的背景顏色 */
+}
+
+.pending {
+    background-color: #ffcc99;
+    /* 待處理狀態的背景顏色 */
+}
+
+.processing {
+    background-color: #ff9966;
+    /* 處理中狀態的背景顏色 */
+}
+
+.shipped {
+    background-color: #66ccff;
+    /* 已出貨狀態的背景顏色 */
+}
+
+.completed {
+    background-color: #66ff66;
+    /* 已完成狀態的背景顏色 */
+}
+
+.cancelled {
+    background-color: #ff6666;
+    /* 已取消狀態的背景顏色 */
+}
+
+/* 模态框容器样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* 模态框内容样式 */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    /* 添加圆角 */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    /* 添加阴影效果 */
+    max-width: 700px;
+    /* 设置最大宽度 */
+}
+
+/* 关闭按钮样式 */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 分页样式 */
+.tabs {
+    display: flex;
+    margin-top: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    color: white;
+    /* 默认文字颜色 */
+}
+
+.tab.active {
+    background-color: #ddd;
+    color: black;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ffffff;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.tab-content.active {
+    display: block;
+    height: 100%;
+    background-color: #fff9f9e4;
+}
+
+/* 给不同的标签页设置颜色 */
+.tab[data-tab="tab0"] {
+    background-color: #007bff;
+    /* 我的商品 - 蓝色 */
+}
+
+.tab[data-tab="tab1"] {
+    background-color: #28a745;
+    /* 新增商品 - 绿色 */
+}
+
+.tab[data-tab="tab2"] {
+    background-color: #ffc107;
+    /* 编辑商品 - 黄色 */
+}
+
+.tab[data-tab="tab3"] {
+    background-color: #dc3545;
+    /* 删除商品 - 红色 */
+}
+
+.slide-in {
+    animation: slideInAnimation 2s ease-in-out forwards;
+}
+
+@keyframes slideInAnimation {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 在 style.css 中添加以下样式 */
+
+/* 搜索框样式 */
+#orderSearchInput {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* 搜索按钮样式 */
+#searchButton {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #007bff;
+    /* 按钮背景颜色 */
+    color: #fff;
+    /* 按钮文字颜色 */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* 按钮背景颜色变化动画 */
+}
+
+#searchButton:hover {
+    background-color: #0056b3;
+    /* 鼠标悬停时按钮背景颜色 */
+}
+
+#errorMessage {
+    color: #ff0000;
+    /* 错误信息颜色 */
+    font-size: 18px;
+    /* 调整字体大小 */
+    margin-top: 10px;
+    /* 增加上边距 */
+}
+
+#orderSearchInput::placeholder {
+    font-size: 14px;
+    /* 调整搜索框 placeholder 字体大小 */
+}
+
+/* 搜索按钮样式 */
+#searchButton {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    /* 绿色 */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* 输入框样式 */
+#orderSearchInput {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* 错误信息样式 */
+#errorMessage {
+    color: red;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+
+    .order-details {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .order-details th, .order-details td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    .order-details th {
+        background-color: #f2f2f2;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .order-details tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .order-details tbody tr:hover {
+        background-color: #e9ecef;
+    }

@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('../image/pexels-pixabay.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    backdrop-filter: blur(5px);
+}
+
+
+.container {
+    position: relative;
+    /* left: 300px; */
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 36px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+
+.logo {
+    position: absolute;
+    text-decoration: none;
+    top: 0px;
+    left: 10px;
+    width: 80px;
+    height: 50px;
+    font-size: 20px;
+    /*background: pink;*/
+}
+.index {
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    width: 80px;
+    height: 50px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bolder;
+    
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: rgb(242, 128, 128);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: rgb(246, 222, 136);
+}
+.forgetpwd{
+    text-align: center;
+    font-size: small;
+    margin-top: 20px;
+    
+}
+.signin{
+    text-align: center;
+    font-size: small;
+    margin-top: 10px;
+
+}
+.form-label{
+    margin-top: 15px;
+    display: inline;
+}
+input[type="radio"]{
+    margin: 15px;
+}
+
+/* login & signin container */
+.container-log {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 36px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    margin-right: 20px; /* 调整右边距 */
+   
+    transform: translateX(70%); /* 调整初始位置，使其不太靠右 */
+}
+/* ===RWD ===Start */
+@media screen and (max-width:768px){
+    body {
+        justify-content: center; /* 使内容在720px以下居中 */
+    }
+
+    .container-log {
+        margin-right: 0; /* 移除右边距 */
+        transform: translateX(0); /* 重置位置 */
+    }
+}
+
+
+
+
+/* ===RWD ===End */

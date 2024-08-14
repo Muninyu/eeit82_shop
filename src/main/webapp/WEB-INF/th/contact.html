@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+	rel="stylesheet">
+<title>BeautyBeast</title>
+<!-- Bootstrap core CSS -->
+<link href="about/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Additional CSS Files -->
+<link rel="stylesheet" href="about/css/fontawesome.css">
+<link rel="stylesheet" href="about/css/aboutcontact.css">
+<link rel="stylesheet" href="about/css/owl.css">
+<link rel="stylesheet" href="about/css/animate.css">
+<link rel="stylesheet" href="about/css/style-starter.css">
+<link rel="stylesheet"
+	href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+<!-- Google Font -->
+<!-- English -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+	rel="stylesheet">
+<!-- Chinese -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+	rel="stylesheet">
+<style>
+body {
+	position: relative;
+	color: white; /* 調整文字顏色以確保可讀性 */
+}
+
+body::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('about/images/聯絡我們.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	opacity: 0.5; /* 調整背景圖片的透明度 */
+	z-index: -1; /* 確保背景圖片在所有內容後面 */
+}
+
+iframe {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+.alert {
+	padding: 15px;
+	background: linear-gradient(to right top, rgb(246, 222, 136) 20%,
+		rgb(242, 128, 128) 80%);
+	color: white;
+	margin-bottom: 15px;
+	position: fixed;
+	/* Fixed positioning to place it in the center of the viewport */
+	top: 50%; /* Center vertically */
+	left: 50%; /* Center horizontally */
+	transform: translate(-50%, -50%);
+	/* Adjust positioning to truly center the element */
+	display: none; /* Initially hidden */
+	z-index: 1000; /* Ensure the alert is above other content */
+}
+
+.closebtn {
+	position: absolute;
+	top: 0;
+	right: 10px;
+	color: white;
+	font-size: 20px;
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+	<!-- ***** Header Area Start ***** -->
+	<header
+		class="header-area-ac header-sticky roboto-regular noto-sans-tc-regular">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="main-nav">
+						<!-- ***** Logo Start ***** -->
+						<a th:href="@{/index}" class="logo">
+							<h2 style="color: white;">B&B</h2>
+						</a>
+						<!-- ***** Logo End ***** -->
+						<!-- ***** Menu Start ***** -->
+						<ul class="nav">
+							<li><a th:href="@{/about}">關於我們</a></li>
+							<li><a href="product-details.html">健康精靈</a></li>
+							<li><a href="/page/page3">健身行動</a></li>
+							<li><a href="/shop">健身好物</a></li>
+							<li><a th:href="@{/contact}">聯絡我們</a></li>
+							<li><a href="#"><i class="fa-solid fa-cart-shopping"></i></i></a></li>
+							<li><a href="/test2">Sign In</a></li>
+						</ul>
+						<a class='menu-trigger'><span>Menu</span></a>
+						<!-- ***** Menu End ***** -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- ***** Header Area End ***** -->
+	<div
+		class="main-banner roboto-regular noto-sans-tc-regular header-text"></div>
+
+	<!-- 顯示 Flash 訊息 -->
+	<div id="successMessage" class="alert">
+		<span class="closebtn" onclick="closeAlert()">&times;</span>
+		<p id="successText">表單已成功提交！</p>
+	</div>
+
+	<!-- contact1 -->
+	<section class="w3l-contact-1">
+		<div class="contacts-9 py-5">
+			<div class=" container py-lg-4">
+				<div class=" row contact-view mt-lg-5 mt-4">
+					<div class="col-lg-6">
+						<div class="headerhny-title text-center">
+							<h2>聯絡我們</h2>
+						</div>
+						<form action="#" id="contactForm" th:action="@{/contact/submit}"
+							th:object="${contactUs}" method="post" class="formhny-sec">
+							<div class="form-grids">
+								<div class="form-input">
+									<input type="text" id="w3lName" name="name"
+										placeholder="請輸入姓名 *" required="" />
+								</div>
+								<div class="form-input">
+									<input type="text" id="w3lSubject" name="subject"
+										placeholder="聯絡事項 *" required="" />
+								</div>
+								<div class="form-input">
+									<input type="email" id="w3lSender" name="email"
+										placeholder="請輸入 Email *" required="" />
+								</div>
+								<div class="form-input">
+									<input type="text" id="w3lPhone" name="phone"
+										placeholder="請輸入電話 *" required="" />
+								</div>
+							</div>
+							<div class="form-input mt-4">
+								<textarea id="w3lMessage" name="message" placeholder="請輸入訊息"
+									required=""></textarea>
+							</div>
+							<div class="submithny text-center mt-4">
+								<button type="submit" class="btn read-button">提交表單</button>
+							</div>
+						</form>
+					</div>
+					<div class="col-lg-6 col-md-8 col-sm-10 mx-auto">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d232935.40156284563!2d120.46991703519437!3d24.185208682856636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d65575df2d1%3A0x8dd494fb51747b0a!2z5Y-w5Lit5biC5YyX5Y2A6Ie65Lit!5e0!3m2!1szh-TW!2stw!4v1716391486546!5m2!1szh-TW!2stw"
+							style="border-radius: 15px;" allowfullscreen="" loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class=" container w3l-footer">
+		<!-- <section class="footer-inner-main"> -->
+		<div class="footer-hny-grids py-5">
+			<div class="container py-lg-4">
+				<div class="text-txt">
+					<div class="right-side">
+						<div class="row footer-links">
+							<div class="col-md-5 col-sm-6 sub-two-right mt-5">
+								<h6>BeautyBeast</h6>
+								<ul>
+									<li><a th:href="@{/about}">關於我們</a></li>
+									<li><a href="#">健康精靈</a></li>
+									<li><a href="/page/page3">健身行動</a></li>
+									<li><a href="/shop">健康好物</a></li>
+									<li><a th:href="@{/contact}">聯絡我們</a></li>
+								</ul>
+							</div>
+							<div class="col-md-6 col-sm-6 sub-two-right mt-5">
+								<h6>開始使用</h6>
+								<form action="/ques1" class="subscribe mb-3" method="get">
+									<input type="email" name="email" placeholder="輸入Email或手機號碼"
+										required="">
+									<button type="submit">
+										<span class="fa fa-envelope-o"></span>
+									</button>
+								</form>
+								<p>加入Beauty & Beast，開始健康每一天 !</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="below-section"> -->
+		<div class="container">
+			<div class="copyright-footer">
+				<div class="columns text-lg-left ">
+					<p style="padding: 20px;">Copyright © 2024 BeautyBeast Website.
+						All rights reserved. &nbsp;&nbsp</p>
+				</div>
+				<ul class="social text-lg-right">
+					<li><a href="#facebook"><span class="fa fa-facebook"
+							aria-hidden="true"></span></a></li>
+					<li><a href="#linkedin"><span class="fa fa-linkedin"
+							aria-hidden="true"></span></a></li>
+					<li><a href="#twitter"><span class="fa fa-twitter"
+							aria-hidden="true"></span></a></li>
+					<!-- <li><a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+						</li> -->
+				</ul>
+			</div>
+		</div>
+		<!-- copyright -->
+		<!-- move top -->
+		<button onclick="topFunction()" id="movetop" title="Go to top">
+			<span class="fa fa-arrow-up" aria-hidden="true"></span>
+		</button>
+		<!-- </section> -->
+	</footer>
+	<!-- Scripts -->
+
+	<script>
+		window.onscroll = function() {
+			scrollFunction()
+		};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20
+					|| document.documentElement.scrollTop > 20) {
+				document.getElementById("movetop").style.display = "block";
+			} else {
+				document.getElementById("movetop").style.display = "none";
+			}
+		}
+
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+
+
+	<script>
+		// Function to close the alert
+		function closeAlert() {
+			var alertDiv = document.querySelector('.alert');
+			alertDiv.style.display = 'none';
+		}
+
+		// Automatically hide success message after 5 seconds
+		window.onload = function() {
+			setTimeout(function() {
+				var alertDiv = document.querySelector('.alert');
+				if (alertDiv) {
+					alertDiv.style.display = 'none';
+				}
+			}, 5000); // 5秒後自動隱藏
+		}
+	</script>
+
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script src="about/jquery/jquery.min.js"></script>
+	<script src="about/bootstrap/js/bootstrap.min.js"></script>
+	<script src="about/js/isotope.min.js"></script>
+	<script src="about/js/owl-carousel.js"></script>
+	<script src="about/js/counter.js"></script>
+	<script src="about/js/aboutcontact.js"></script>
+</body>
+</html>

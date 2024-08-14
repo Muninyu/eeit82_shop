@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+	rel="stylesheet">
+
+<title>BeautyBeast</title>
+
+<!-- Bootstrap core CSS -->
+<!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- Bootstrap CSS 5/22新增 -->
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- AOS CSS 5/22新增 -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+	rel="stylesheet">
+
+<!-- Additional CSS Files -->
+<link rel="stylesheet" href="about/css/fontawesome.css">
+<link rel="stylesheet" href="about/css/aboutcontact.css">
+<link rel="stylesheet" href="about/css/owl.css">
+<link rel="stylesheet" href="about/css/animate.css">
+<link rel="stylesheet" href="about/css/style-starter.css">
+<link rel="stylesheet"
+	href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+<!-- Google Font -->
+<!-- English -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+	rel="stylesheet">
+<!-- Chinese -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+	rel="stylesheet">
+
+
+<!-- 關於我們用 5/22新增 -->
+<style>
+.about-section {
+	padding: 60px 0;
+}
+
+.about-img {
+	width: 100%;
+	height: auto;
+}
+
+.about-text {
+	font-size: 1.2em;
+	line-height: 1.6em;
+	text-align: left; /* 預設為左對齊 */
+}
+
+@media ( max-width : 576px) {
+	.about-text {
+		text-align: center; /* 手機螢幕上變為置中對齊 */
+		font-size: 1em; /* 可選：調整字體大小 */
+	}
+}
+</style>
+</head>
+<body>
+	<!-- header-area = top變更40>18 -->
+	<!-- 頁首 5/22更改 -->
+	<header
+		class="header-area-ac header-sticky roboto-regular noto-sans-tc-regular">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="main-nav">
+						<!-- ***** Logo Start ***** -->
+						<a th:href="@{/index}" class="logo">
+							<h2 style="color: white;">B&B</h2>
+						</a>
+						<!-- ***** Logo End ***** -->
+						<!-- ***** Menu Start ***** -->
+						<ul class="nav">
+							<li><a th:href="@{/about}">關於我們</a></li>
+							<li><a href="product-details.html">健康精靈</a></li>
+							<li><a href="/page/page3">健身行動</a></li>
+							<li><a href="/shop">健身好物</a></li>
+							<li><a th:href="@{/contact}">聯絡我們</a></li>
+							<li><a href="#"><i class="fa-solid fa-cart-shopping"></i></i></a></li>
+							<li><a href="/test2">Sign In</a></li>
+						</ul>
+						<a class='menu-trigger'><span>Menu</span></a>
+						<!-- ***** Menu End ***** -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- ***** Header Area End ***** -->
+	<div
+		class="main-banner roboto-regular noto-sans-tc-regular header-text"></div>
+	<!--mid-slider -->
+
+	<!-- 關於我們內容 5/22新增 -->
+	<div>
+		<div class="container about-section">
+			<div class="row">
+				<div class="col-lg-5 text-center" data-aos="fade-right">
+					<img src="about/logo/B&B_logo.png" class="about-img my-5"
+						style="width: 50%;" alt="">
+				</div>
+				<div class="col-lg-7 my-5 d-flex align-items-center"
+					data-aos="fade-left">
+					<div class="about-text">
+						<h1 class="text-center">Logo設計理念</h1>
+						<br>
+						<p class="text-lg-left" style="font-size: 0.875em">Beauty &
+							Beast 的 Logo
+							由一隻猩猩與一位女性兩個元素組成，猩猩的部分象徵著男性可望從健身中獲取力量，女性則象徵不只有男性透過運動來維持自己的體態，透過這樣的形式來宣傳運動。
+						</p>
+						<br>
+						<p class="text-lg-left " style="font-size: 0.875em">Beauty &
+							Beast
+							的主打配色以橘色系列為主，因為橘色的代表意義為活力、熱心等正面感受，延伸開朗、信任、坦率、親切延伸的正面意象，適合用於社會服務相關的活動配色，很符合我們的網站設計為大眾服務的目的。
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-7 my-5 d-flex align-items-center"
+					data-aos="fade-right">
+					<div class="about-text">
+						<h1 class="text-center">品牌名稱介紹</h1>
+						<br>
+						<p class="text-lg-left" style="font-size: 0.875em">品牌取名為
+							Beauty & Beast，取自 Beauty(美女)和
+							Beast(野獸)兩個英文單詞，此概念引用美女與野獸的概念去帶出在現今健身市場中，女性在健身管理時多追求苗條、維持體態，其需求為變得更美;而男性則希望能增肌、雕塑健美的身材居多，主要需求為擁有強健的體魄，Beauty
+							Beast 一詞便使男性及女性消費者皆能聯想到自身的健身需求和使用網站服務後想實現的目標:
+							透過使用健康管理的網站服務，期待能變美、變強壯。</p>
+					</div>
+				</div>
+				<div class="col-lg-5 my-5  text-center" data-aos="fade-left">
+					<img src="about/logo/B&B_text.png" class="about-img"
+						style="width: 50%;" alt=""> <img
+						src="about/logo/B&B_center.png" class="about-img my-4"
+						style="width: 50%;" alt="">
+				</div>
+				<div class="col-lg-6 my-5  text-center" data-aos="fade-left">
+					<img src="about/images/在家運動.png" class="about-img" alt="">
+				</div>
+				<div class="col-lg-6 my-5 d-flex align-items-center"
+					data-aos="fade-right">
+					<div class="about-text">
+						<h1 class="text-center">網站介紹</h1>
+						<br>
+						<p class="text-lg-left" style="font-size: 0.875em">Beauty &
+							Beast
+							結合了運動和飲食兩方面的管理系統，除了可以為使用者制定運動計畫，讓使用者在家就能進行簡單的運動，不用特地跑到遙遠的運動中心去運動，不用顧慮昂貴的健身房費用；同時我們設計了飲食紀錄與熱量轉換功能，讓使用者可以有效控管卡洛里攝取量。
+						</p>
+						<br>
+						<p class="text-lg-left" style="font-size: 0.875em">
+							此外，我們也提供了購物平台， 當使用者想進行進階運動時， 可以購買所需的健身器具。</p>
+						<br>
+						<p class="text-lg-left" style="font-size: 0.875em">Beauty &
+							Beast 希望可以透過整合三方面功能 減少使用者負擔 ，讓健康與好身材不再是麻煩事。</p>
+						<br>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 頁尾 -->
+	<footer class=" container w3l-footer">
+		<!-- <section class="footer-inner-main"> -->
+		<div class="footer-hny-grids py-5">
+			<div class="container py-lg-4">
+				<div class="text-txt">
+					<div class="right-side">
+						<div class="row footer-links">
+							<div class="col-md-5 col-sm-6 sub-two-right mt-5">
+								<h6>Beauty & Beast</h6>
+								<ul>
+									<li><a th:href="@{/about}">關於我們</a></li>
+									<li><a href="#">健康精靈</a></li>
+									<li><a href="/page/page3">健身行動</a></li>
+									<li><a href="/shop">健康好物</a></li>
+									<li><a th:href="@{/contact}">聯絡我們</a></li>
+								</ul>
+							</div>
+							<div class="col-md-6 col-sm-6 sub-two-right mt-5">
+								<h6>開始使用</h6>
+								<form action="/ques1" class="subscribe mb-3" method="get">
+									<input type="email" name="email" placeholder="輸入Email或手機號碼"
+										required="">
+									<button type="submit">
+										<span class="fa fa-envelope-o"></span>
+									</button>
+								</form>
+								<p>加入Beauty & Beast，開始健康每一天 !</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<!-- <div class="below-section"> -->
+		<div class="container">
+			<div class="copyright-footer">
+				<div class="columns text-lg-left ">
+					<p style="padding: 20px;">Copyright © 2024 BeautyBeast Website.
+						All rights reserved. &nbsp;&nbsp</p>
+				</div>
+
+				<ul class="social text-lg-right">
+					<li><a href="#facebook"><span class="fa fa-facebook"
+							aria-hidden="true"></span></a></li>
+					<li><a href="#linkedin"><span class="fa fa-linkedin"
+							aria-hidden="true"></span></a></li>
+					<li><a href="#twitter"><span class="fa fa-twitter"
+							aria-hidden="true"></span></a></li>
+					<!-- <li><a href="#google"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
+							</li> -->
+
+				</ul>
+			</div>
+		</div>
+		</div>
+		<!-- copyright -->
+		<!-- move top -->
+		<button onclick="topFunction()" id="movetop" title="Go to top">
+			<span class="fa fa-arrow-up" aria-hidden="true"></span>
+		</button>
+
+
+		<!-- Bootstrap JS Bundle with Popper 5/22新增 -->
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+		<!-- AOS JS 5/22新增 -->
+		<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+		<script>
+			// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function() {
+				scrollFunction()
+			};
+
+			function scrollFunction() {
+				if (document.body.scrollTop > 20
+						|| document.documentElement.scrollTop > 20) {
+					document.getElementById("movetop").style.display = "block";
+				} else {
+					document.getElementById("movetop").style.display = "none";
+				}
+			}
+
+			// When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+
+			//5/22新增JS 
+			AOS.init({
+				duration : 2000
+			// 設定動畫持續時間為2000毫秒 (2秒)
+			});
+		</script>
+
+	</footer>
+	<!-- Scripts -->
+	<!-- Bootstrap core JavaScript -->
+	<script src="about/jquery/jquery.min.js"></script>
+	<script src="about/bootstrap/js/bootstrap.min.js"></script>
+	<script src="about/js/isotope.min.js"></script>
+	<script src="about/js/owl-carousel.js"></script>
+	<script src="about/js/counter.js"></script>
+	<script src="about/js/aboutcontact.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+		<h1>聯絡表單</h1>
+	    <p>姓名: <span th:text="${contactUs.name}"></span></p>
+	    <p>聯絡事項: <span th:text="${contactUs.subject}"></span></p>
+	    <p>信箱: <span th:text="${contactUs.email}"></span></p>
+	    <p>電話: <span th:text="${contactUs.phone}"></span></p>
+	    <p>聯絡內容: <span th:text="${contactUs.message}"></span></p>
+	    <p>發送時間: <span th:text="${contactUs.createdAt}"></span></p>
+</body>
+</html>

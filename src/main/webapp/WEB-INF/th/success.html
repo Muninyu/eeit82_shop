@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+
+		<style>
+			.alert {
+		        padding: 20px; /* 增加內邊距以增加內容區域 */
+		        background: linear-gradient(to right top, rgb(246,222,136) 20%, rgb(242,128,128) 80%);
+		        color: white;
+		        margin-bottom: 15px;
+		        position: fixed; /* Fixed positioning to place it in the center of the viewport */
+		        top: 50%; /* Center vertically */
+		        left: 50%; /* Center horizontally */
+		        transform: translate(-50%, -50%); /* Adjust positioning to truly center the element */
+		        display: block; /* Initially visible */
+		        z-index: 1000; /* Ensure the alert is above other content */
+		        width: 400px; /* 增加寬度 */
+		        height: 200px; /* 增加高度 */
+		        font-size: 20px; /* 增加字體大小 */
+		        border-radius: 20px; /* 圓角 */
+		        display: flex; /* 使用Flexbox來居中內容 */
+		        align-items: center; /* 垂直居中 */
+		        justify-content: center; /* 水平居中 */
+		        text-align: center; /* 文本居中 */
+		    }
+		</style>
+	</head>
+	<body>
+		<div id="successMessage" class="alert">
+	       <p id="successText">表單已成功提交！</p>
+	   	</div>
+		<script>
+	       // Automatically redirect after 3 seconds
+	       setTimeout(function() {
+	           window.location.href = "/contact"; // 替換為你想要跳轉的URL
+	       }, 3000); // 3秒後跳轉
+	   	</script>
+	</body>
+</html>
